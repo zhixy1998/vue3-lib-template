@@ -7,7 +7,7 @@ import packageConfig from './package.json';
 import camelCase from 'camelcase';
 
 const projectName = packageConfig.name.split("/").at(-1);
-
+import { lazyImport, VxeResolver } from 'vite-plugin-lazy-import'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,7 +23,17 @@ export default defineConfig({
     dts({
       tsconfigPath: "../../tsconfig.components.json",
       outDir: "lib"
-    })
+    }),
+    lazyImport({
+      resolvers: [
+        VxeResolver({
+          libraryName: 'vxe-pc-ui'
+        }),
+        VxeResolver({
+          libraryName: 'vxe-table'
+        })
+      ]
+    }),
   ],
   build: {
     minify: true,

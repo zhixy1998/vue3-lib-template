@@ -17,6 +17,8 @@
     "components:clean": "pnpm -C scripts components:clean",
     "components:build": "pnpm -C scripts components:build",
     "components:release": "pnpm -C scripts components:release",
+    "modules:clean": "node -e \"require('fs').rmSync('node_modules',{recursive:true,force:true});console.log('清理了根目录node_modules')\" && pnpm -r exec -- node -e \"try{require('fs').rmSync('node_modules',{recursive:true,force:true})}catch(e){}\"",
+    "reinstall": "pnpm modules:clean && pnpm install",
     "lint": "eslint .",
     "fix": "eslint . --fix"
   },
@@ -43,6 +45,7 @@
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.2.3",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-lazy-import": "^1.0.7",
     "vue-tsc": "^2.0.29"
   },
   "name": "",

@@ -41,5 +41,9 @@ module.exports = {
         'no-useless-escape': 'off', // 禁止不必要的转义字符
         "semi": "off", // 强制使用分号
         'vue/multi-word-component-names': 'off', // 要求组件名称始终为 “-” 链接的单词
+        'vue/no-unused-components': 'off', // 检查未使用的组件
+        '@typescript-eslint/no-explicit-any': 'off',
+        "@typescript-eslint/no-unused-vars": 'off',
+        "no-empty": "off"
     },
 };
